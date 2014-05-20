@@ -579,7 +579,7 @@ function islandora_critical_edition_advanced_get_video_params($reference_object)
     'pid' => $reference_object->id,
   );
   // Video player.
-  if (isset($reference_object[$viewer_dsid]) && islandora_datastream_access(FEDORA_VIEW_OBJECTS, $reference_object[$viewer_dsid])) {
+  if (isset($reference_object[$viewer_dsid]) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $reference_object[$viewer_dsid])) {
     $video_url = url("islandora/object/{$reference_object->id}/datastream/$viewer_dsid/view");
     $video_params += array(
       'mime' => 'video/mp4',
@@ -588,7 +588,7 @@ function islandora_critical_edition_advanced_get_video_params($reference_object)
     );
   }
   // Thumbnail.
-  if (isset($reference_object['TN']) && islandora_datastream_access(FEDORA_VIEW_OBJECTS, $reference_object['TN'])) {
+  if (isset($reference_object['TN']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $reference_object['TN'])) {
     $video_params += array(
       'tn' => url("islandora/object/{$reference_object->id}/datastream/TN/view", array('absolute' => TRUE)),
     );
